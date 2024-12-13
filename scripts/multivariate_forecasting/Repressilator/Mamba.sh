@@ -27,5 +27,5 @@ python -u run.py \
   --batch_size 32 \
   --learning_rate 1e-3 \
   --train_epochs 10 \
-  --itr 1 >&1 | tee logs/ECL_${pred_len}_${model_name}.log
+  --itr 1 >&1 | tee logs/Repressilator_${pred_len}_${model_name}.log
 done
