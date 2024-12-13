@@ -5,6 +5,7 @@ from data_provider.data_loader import (
     Dataset_Solar,
     Dataset_PEMS,
     Dataset_Pred,
+    Dataset_Repressilator,
 )
 from torch.utils.data import DataLoader
 

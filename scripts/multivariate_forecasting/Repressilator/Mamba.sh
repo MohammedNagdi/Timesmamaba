@@ -16,9 +16,9 @@ python -u run.py \
   --seq_len 96 \
   --pred_len $pred_len \
   --e_layers 1 \
-  --enc_in 321 \
-  --dec_in 321 \
-  --c_out 321 \
+  --enc_in 6 \
+  --dec_in 6 \
+  --c_out 6 \
   --des 'Exp' \
   --d_model 256 \
   --r_ff 4 \

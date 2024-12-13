@@ -340,12 +340,12 @@ class Dataset_Repressilator(Dataset):
         self.data_y = data[border1:border2]
 
     def __getitem__(self, index):
-        time_series_index = index / self.last_point
+        time_series_index = int(index / self.last_point)
         time_stamp = index % self.last_point
-        s_begin = time_series_index * self.series_length + time_stamp
-        s_end = s_begin + self.seq_len
-        r_begin = s_end - self.label_len
-        r_end = r_begin + self.label_len + self.pred_len
+        s_begin = int(time_series_index * self.series_length + time_stamp)
+        s_end = int(s_begin + self.seq_len)
+        r_begin = int(s_end - self.label_len)
+        r_end = int(r_begin + self.label_len + self.pred_len)
 
         seq_x = self.data_x[s_begin:s_end]
         seq_y = self.data_y[r_begin:r_end]
@@ -355,7 +355,7 @@ class Dataset_Repressilator(Dataset):
         return seq_x, seq_y, seq_x_mark, seq_y_mark
 
     def __len__(self):
-        return (len(self.data_x)/self.series_length) * self.last_point
+        return int(len(self.data_x)/self.series_length) * self.last_point
 
     def inverse_transform(self, data):
         return self.scaler.inverse_transform(data)
